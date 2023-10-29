@@ -10,10 +10,10 @@ export default defineEvent({
     if (interaction.isButton()) {
       switch (interaction.customId) {
       case 'auth-notification-confirm':
-        authNotificationConfirmHandler(interaction)
+        await authNotificationConfirmHandler(interaction)
         break
       case 'auth-notification-cancel':
-        authNotificationCancelHandler(interaction)
+        await authNotificationCancelHandler(interaction)
         break
       default:
         return
