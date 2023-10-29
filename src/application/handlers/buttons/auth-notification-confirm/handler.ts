@@ -18,7 +18,5 @@ export async function authNotificationConfirmHandler(interaction: ButtonInteract
 
   const interactionMemberDomain = await EtyMemberRepository.getMemberRequired(memberSearchParams)
 
-  await interaction.deferReply()
-
   await QuestService.startQuestInBotChat(interaction.channel, interaction, interactionMember, interactionMemberDomain)
 }
