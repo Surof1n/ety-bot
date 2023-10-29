@@ -127,7 +127,7 @@ async function selectHelper(notAuthorizedUser: User, guild: Guild, helperRoleId:
   })
 
   try {
-    const confirmation = await authorizationLogMessage.awaitMessageComponent({ componentType: ComponentType.Button, filter: (i) => !!i.member.roles.cache.find(item => item.id === helperRole.id) })
+    const confirmation = await authorizationLogMessage.awaitMessageComponent({ componentType: ComponentType.Button })
 
     if (confirmation.customId === 'confirm') {
       return { helper: confirmation.member, authorizationLogMessage }
