@@ -1,0 +1,32 @@
+{
+    "env": {
+        "browser": false,
+        "es2021": true
+    },
+    "extends": "standard-with-typescript",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "plugins": [
+        "@ts-safeql/eslint-plugin"
+    ],
+    "rules": {
+        "space-before-function-paren": "off",
+        "@typescript-eslint/space-before-function-paren": "off",
+        "@typescript-eslint/strict-boolean-expressions": "off",
+        "@typescript-eslint/no-extraneous-class": "off",
+        "@typescript-eslint/array-type": "off",
+        "@typescript-eslint/no-floating-promises": "off",
+        "@typescript-eslint/indent": [
+            "error",
+            2,
+            {
+                "ignoredNodes": [
+                    "PropertyDefinition"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,14 @@
+services:
+  application-database:
+    image: postgres:14.3
+    container_name: ety-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: ety-db
+      POSTGRES_HOST_AUTH_METHOD: trust
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready --username=postgres"]
+      interval: 2s
+      timeout: 4s
+      retries: 5
