@@ -7,24 +7,19 @@ const command = new SlashCommandBuilder()
   .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
   .setDMPermission(false)
   .addStringOption(option =>
-    option.setName('href')
+    option.setName('params')
       .setDescription('Изображение')
       .setRequired(true)
-      .setNameLocalizations({ ru: 'ссылка' }))
-  .addStringOption(option =>
-    option.setName('color')
-      .setDescription('Цвет')
-      .setRequired(true)
-      .setNameLocalizations({ ru: 'цвет' }))
+      .setNameLocalizations({ ru: 'ссылка и цвет (через пробел)' }))
 
 export default defineCommand({
   builder: command,
   async handle(context, interaction) {
-    const color = interaction.options.getString('color', true)
+    const params = interaction.options.getString('params', true).split(' ')
 
     const embed = new EmbedBuilder({
-      image: { url: interaction.options.getString('href', true) }
-    }).setColor(color as `#${string}`)
+      image: { url: params[0] }
+    }).setColor(params[1] as `#${string}`)
 
     await interaction.channel?.send({ embeds: [embed] })
   }
