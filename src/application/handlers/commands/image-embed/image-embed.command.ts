@@ -10,7 +10,7 @@ const command = new SlashCommandBuilder()
     option.setName('params')
       .setDescription('Изображение')
       .setRequired(true)
-      .setNameLocalizations({ ru: 'ссылка и цвет (через пробел)' }))
+      .setNameLocalizations({ ru: 'ссылка_и_цвет_через_пробел' }))
 
 export default defineCommand({
   builder: command,
